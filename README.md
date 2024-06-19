@@ -2,7 +2,7 @@
 
 *Simple application to fetch random animal pictures using Camunda Platform 8.*
 
-![Animal Picture App](docs/AnimalPictureApp2.png)
+![Animal Picture App](camunda/docs/AnimalPictureApp2.png)
 
 This following stack is used:
 
@@ -120,13 +120,13 @@ Once exposed, you can interact with the application:
 
 ### Basic Flow
 
-![Animal Picture App 2](docs/AnimalPictureApp.png)
+![Animal Picture App 2](camunda/docs/AnimalPictureApp.png)
 
 ### Extended Process
 
 There will be some extended process model that adds some more updates to the process soon. 
 
-![Animal Picture App Extended](docs/AnimalPictureApp2_Extended.png)
+![Animal Picture App Extended](camunda/docs/AnimalPictureApp2_Extended.png)
 
 ### Credits for the sample data and images
 

@@ -2,7 +2,7 @@
 
 *Simple application to fetch random animal pictures using Camunda Platform 8.*
 
-![Customer Onboarding](docs/customer-onboarding-simple.png)
+![Animal Picture App](docs/AnimalPictureApp2.png)
 
 This following stack is used:
 
@@ -42,11 +42,24 @@ The easiest way to try out Camunda is to create a cluster in the SaaS environmen
 * Login to https://camunda.io/ (you can create an account on the fly)
 * Create a new cluster
 * Create a new set of API client credentials
-* Copy the client credentials into `src/main/resources/application.properties`
+* Copy the client credentials into `src/main/resources/application.properties` if you are running it locally, else give the details in `kubernetes/camunda_deployment.yaml`
 
 
-## Run the Application in Kubernetes
+## Run the Application
 
+### Local Deployment
+Run Spring Boot Java Application
+
+The application will deploy the process model during startup:
+
+`mvn spring-boot:run`
+
+### Docker Deployment
+You can fetch and run the Docker image directly from Docker Hub:
+
+`docker run -d -p 8888:8888 avispsarc/camunda:latest`
+
+### Kubernetes Deployment
 This project is containerized using Docker and can be deployed in a Kubernetes cluster. Follow the steps below to run the application.
 
 Prerequisites
@@ -55,32 +68,25 @@ Prerequisites
 * Kubernetes
 * Helm
 
-# Build Docker Image
-
-Build the Docker image of the Spring Boot application:
-
-`docker build -t camunda-animal-picture-app .`
-
-# Deploy To Kubernetes
+#### Deploy To Kubernetes
 
 1. Create a Kubernetes cluster if you don't have one already.
-2. Push the Docker image to a container registry accessible by your Kubernetes cluster. For example, using Docker Hub:
+2. In a terminal, navigate to where you have camunda-deployment.yaml and deploy the application using kubectl
    
-  `docker tag camunda-animal-picture-app <your-docker-hub-username>/camunda-animal-picture-app`
-   
-  `docker push <your-docker-hub-username>/camunda-animal-picture-app`
-3. Update the image name in the Kubernetes deployment files to match your pushed image.
-4. Deploy the application using kubectl:
+    `kubectl apply -f camunda-deployment.yaml`
 
-   `kubectl apply -f k8s/`
+3. Make sure everything worked by listing your deployments:
 
-# Helm Chart
+   `kubectl get deployments`
+
+#### Helm Chart
 
 Alternatively, you can use a Helm chart to deploy the application. Here's an example Helm chart configuration.
 
 1. Create a Helm chart for the application if you don't have one:
    
     `helm create camunda-animal-picture-app`
+
 2. Update the Helm chart values to match your configuration. Ensure the image name and other configurations are set correctly.
 3. Deploy the Helm chart:
    
@@ -88,20 +94,42 @@ Alternatively, you can use a Helm chart to deploy the application. Here's an exa
 
 ## Play
 
+### Local Deployment
+
 You can interact with the application by starting a new process instance and selecting an animal from the task list:
 
 `curl -X GET http://localhost:8888/camunda/avipsa/process/start`
 
 You can now see the process instance in Camunda Operate - linked via the Cloud Console.
-
 You can work on the user task using Camunda Tasklist, also linked via the Cloud Console.
 
 
+### Docker Deployment
 
-# Extended Process
+If running via Docker, you can interact with the application in the same way as the local deployment:
+
+`curl -X GET http://localhost:8888/camunda/avipsa/process/start`
+
+### Kubernetes Deployment
+
+If running in Kubernetes, you can expose the service and interact with the application. The default service type is ClusterIP. If you want to expose it externally, you might need to change the service type to NodePort or LoadBalancer.
+
+Once exposed, you can interact with the application:
+
+`curl -X GET http://<external-ip>:32766/camunda/avipsa/process/start`
+
+### Extended Process
 
 There will be some extended process model that adds some more updates to the process soon. 
 
-![Customer Onboarding]
+![Animal Picture App] 
 
-You can find the complete code in repository on GitHub: https://github.com/berndruecker/customer-onboarding-camundacloud-springboot-extended
+### Credits for the sample data and images
+
+* Cats: https://api.thecatapi.com/
+* Dogs: https://place.dog/
+* Bears: https://placebear.com
+
+Author: Avipsa Roy Chowdhury
+
+You can find the complete code in repository on GitHub: https://github.com/avipsarc/camundademo

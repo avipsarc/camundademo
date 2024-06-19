@@ -118,11 +118,15 @@ Once exposed, you can interact with the application:
 
 `curl -X GET http://<external-ip>:32766/camunda/avipsa/process/start`
 
+### Basic Flow
+
+![Animal Picture App 2](docs/AnimalPictureApp.png)
+
 ### Extended Process
 
 There will be some extended process model that adds some more updates to the process soon. 
 
-![Animal Picture App 2](docs/AnimalPictureApp.png)
+![Animal Picture App Extended](docs/AnimalPictureApp_Extended.png)
 
 ### Credits for the sample data and images
 

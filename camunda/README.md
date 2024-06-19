@@ -122,7 +122,7 @@ Once exposed, you can interact with the application:
 
 There will be some extended process model that adds some more updates to the process soon. 
 
-![Animal Picture App] 
+![Animal Picture App Demo] (docs/AnimalPictureApp.png)
 
 ### Credits for the sample data and images
 

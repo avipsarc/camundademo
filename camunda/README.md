@@ -126,7 +126,7 @@ Once exposed, you can interact with the application:
 
 There will be some extended process model that adds some more updates to the process soon. 
 
-![Animal Picture App Extended](docs/AnimalPictureApp_Extended.png)
+![Animal Picture App Extended](docs/AnimalPictureApp2_Extended.png)
 
 ### Credits for the sample data and images
 

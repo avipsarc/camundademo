@@ -1,0 +1,23 @@
+camunda:
+  client:
+    mode: saas
+    auth:
+      client-id: zOqNvw2ex1poXkjwrWoYapsD944-2v9c
+      client-secret: zFXH1.13AiY597hfOa4AiPMbWDkNwz9D0an93b4ct_8B8~EkyzWyFpfBfDp9AUZf
+    cluster-id: 3a760a59-1279-48d3-a791-dad9847fe29a
+    region: lhr-1
+
+# H2 Datasource Configuration
+spring.datasource.url: 'jdbc:h2:mem:testdb'
+spring.datasource.driverClassName: 'org.h2.Driver'
+spring.datasource.username: sa
+spring.datasource.password: password
+
+# JPA/Hibernate Configuration
+spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto: update
+
+# Enable H2 Console (optional, for development/debugging purposes)
+spring.h2.console.enabled: true
+
+server.port: 8888

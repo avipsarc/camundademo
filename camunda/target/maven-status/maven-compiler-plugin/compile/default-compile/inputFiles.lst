@@ -1,0 +1,12 @@
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\animal\AnimalEntity.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\CamundaInterviewApplication.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\clients\AnimalImageFetcherClient.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\controllers\ProcessController.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\database\Animal.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\database\AnimalImageDao.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\exception\CamundaInterviewException.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\exception\error\CamundaInterviewError.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\job_worker\ImagePersistenceHandler.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\network\HttpClient.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\response\ImageResponse.java
+C:\Users\avips\Downloads\camunda\camunda\src\main\java\com\camunda\avipsa\util\CamundaDataUtils.java

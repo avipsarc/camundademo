@@ -1,0 +1,10 @@
+com\camunda\avipsa\response\ImageResponseTest.class
+com\camunda\avipsa\animal\AnimalEntityTest.class
+com\camunda\avipsa\CamundaInterviewApplicationTest.class
+com\camunda\avipsa\job_worker\ImagePersistenceHandlerTest.class
+com\camunda\avipsa\util\CamundaDataUtilsTest.class
+com\camunda\avipsa\exception\error\CamundaInterviewErrorTest.class
+com\camunda\avipsa\exception\CamundaInterviewExceptionTest.class
+com\camunda\avipsa\database\model\AnimalTest.class
+com\camunda\avipsa\clients\AnimalImageFetcherClientTest.class
+com\camunda\avipsa\database\AnimalImageDaoTest.class

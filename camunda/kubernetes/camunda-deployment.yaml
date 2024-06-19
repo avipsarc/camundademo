@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consultant-avipsa
+spec:
+  selector:
+    matchLabels:
+      app: consultant-avipsa
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: consultant-avipsa
+    spec:
+      containers:
+        - name: consultant-avipsa
+          image: avispsarc/camunda:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8888
+          env:
+          - name: SERVER_PORT
+            value: '8888'
+          - name: CAMUNDA_CLIENT_MODE
+            value: "saas"
+          - name: CAMUNDA_CLIENT_AUTH_CLIENT_ID
+            value: "zOqNvw2ex1poXkjwrWoYapsD944-2v9c"
+          - name: CAMUNDA_CLIENT_AUTH_CLIENT_SECRET
+            value: "zFXH1.13AiY597hfOa4AiPMbWDkNwz9D0an93b4ct_8B8~EkyzWyFpfBfDp9AUZf"
+          - name: CAMUNDA_CLIENT_CLUSTER_ID
+            value: "3a760a59-1279-48d3-a791-dad9847fe29a"
+          - name: CAMUNDA_CLIENT_REGION
+            value: "lhr-1"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: consultant-avipsa-k8s-svc
+spec:
+  selector:
+    app: consultant-avipsa
+  ports:
+    - protocol: "TCP"
+      port: 8888
+      targetPort: 8888
+      nodePort: 32766
+  type: NodePort
+

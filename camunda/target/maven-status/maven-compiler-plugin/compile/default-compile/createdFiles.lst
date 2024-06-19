@@ -1,0 +1,16 @@
+com\camunda\avipsa\animal\AnimalEntity.class
+com\camunda\avipsa\clients\AnimalImageFetcherClient.class
+com\camunda\avipsa\exception\error\CamundaInterviewError.class
+com\camunda\avipsa\CamundaInterviewApplication.class
+com\camunda\avipsa\response\ImageResponse.class
+com\camunda\avipsa\exception\CamundaInterviewException.class
+com\camunda\avipsa\util\CamundaDataUtils.class
+com\camunda\avipsa\response\ImageResponse$ImageResponseBuilder.class
+com\camunda\avipsa\database\Animal$AnimalBuilder.class
+com\camunda\avipsa\network\HttpClient.class
+com\camunda\avipsa\animal\AnimalEntity$1.class
+com\camunda\avipsa\job_worker\ImagePersistenceHandler.class
+com\camunda\avipsa\exception\CamundaInterviewException$CamundaInterviewExceptionBuilder.class
+com\camunda\avipsa\database\Animal.class
+com\camunda\avipsa\controllers\ProcessController.class
+com\camunda\avipsa\database\AnimalImageDao.class

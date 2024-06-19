@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="b1a091a" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="c8c2935b-35fc-4bd6-b7ab-beaa736f0e5c">
+  <bpmn:process id="Process_AnimalPictureApp2" name="AnimalPictureApp2" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="UserTaskForm_00nlgtc">{
+  "type": "default",
+  "components": [
+    {
+      "type": "select",
+      "key": "animalSelected",
+      "label": "Select Animal",
+      "values": [
+        { "label": "Cat", "value": "cat" },
+        { "label": "Dog", "value": "dog" },
+        { "label": "Bear", "value": "bear" }
+      ],
+      "validate": {
+        "required": true
+      }
+    }
+  ]
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>Flow_0djx8ig</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0djx8ig" sourceRef="StartEvent_1" targetRef="Activity_selectAnimal" />
+    <bpmn:userTask id="Activity_selectAnimal" name="Select Animal">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_00nlgtc" />
+        <zeebe:ioMapping>
+          <zeebe:output source="=animalSelected" target="animalSelected" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0djx8ig</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ln3oyi</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1ln3oyi" sourceRef="Activity_selectAnimal" targetRef="Activity_fetchAnimal" />
+    <bpmn:serviceTask id="Activity_fetchAnimal" name="Fetch Animal Image and Store To DB">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="fetch-animal" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=animalSelected" target="animalSelected" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1ln3oyi</bpmn:incoming>
+      <bpmn:outgoing>Flow_173x0x2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_1" name="End">
+      <bpmn:incoming>Flow_173x0x2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_173x0x2" sourceRef="Activity_fetchAnimal" targetRef="EndEvent_1" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_AnimalPictureApp2">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="82" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="158" y="125" width="25" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1a7mgd2_di" bpmnElement="Activity_selectAnimal">
+        <dc:Bounds x="250" y="60" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1y15c9d_di" bpmnElement="Activity_fetchAnimal">
+        <dc:Bounds x="410" y="60" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1qcaumf_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="562" y="82" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="571" y="125" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0djx8ig_di" bpmnElement="Flow_0djx8ig">
+        <di:waypoint x="188" y="100" />
+        <di:waypoint x="250" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ln3oyi_di" bpmnElement="Flow_1ln3oyi">
+        <di:waypoint x="350" y="100" />
+        <di:waypoint x="410" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_173x0x2_di" bpmnElement="Flow_173x0x2">
+        <di:waypoint x="510" y="100" />
+        <di:waypoint x="562" y="100" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
